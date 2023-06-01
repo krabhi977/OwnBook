@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'images/shop.png'%}" rel="icon"/>
+    <title>
+        {% block title%}
+        {% endblock %}
+    </title>
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet"/>
+    <link href="{% static 'css/all.css'%}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+    <style>
+        .bg-bcolor
+        {
+        background:#2E2E2E;
+        }
+        .bg-ocolor
+        {
+        background:#00ccff;
+        }
+        .text-ocolor
+        {
+        color:#00ccff;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        .ufooter
+        {
+        min-height:250px;
+        border-bottom:1px solid white;
+        }
+        .bfooter
+        {
+        height:50px;
+        font-size:22px;
+        text-align:center;
+        line-height:50px;
+        color:white;
+        }
+        .bfooter a
+        {
+        text-decoration:none;
+        }
+        .bfooter a:hover
+        {
+        color:white;
+        }
+        .w
+        {
+        background:url("{% static 'images/54.jpg'%}");
+        background-size:100% 100%;
+        min-height:220px;
+        padding-top:100px;
+        }
+         .m
+        {
+        background:url("{% static 'images/Academecis.jpeg'%}");
+        background-size:100% 100%;
+        min-height:320px;
+        padding-top:100px;
+        }
+         .k
+        {
+        background:url("{% static 'images/Biography.jpeg'%}");
+        background-size:100% 100%;
+        min-height:220px;
+        padding-top:100px;
+        }
+        .btn1
+        {
+        background:#00ccff;
+        }
+        .product
+        {
+        min-height:500px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row bg-bcolor text-light text-center">
+        <div class="col-sm-4">
+            <i class="fa-solid fa-phone"></i>
+              +91 8601909664 | 9696969696
+
+        </div>
+        <div class="col-sm-4">
+            Welcome to BOOK <b>वाला</b>
+              <i class="fa-regular fa-book-open-cover;"></i>
+        </div>
+        <div class="col-sm-4">
+        <i class="fa-brands fa-facebook"></i>
+         <i class="fa-brands fa-youtube">  </i>
+         <i class="fa-brands fa-twitter">  </i>
+         <i class="fa-brands fa-instagram">  </i>
+        </div>
+
+    </div>
+    <div class="row header py-3 text-center">
+        <div class="col-sm-4 fs-2 text-center">
+            <b>BOOK </b><b class="text-ocolor">वाला
+            <i class="fa-solid fa-book-copy"></i></b>
+        </div>
+        <div class="col-sm-4 pt-2">
+            <div class="input-group"><input type="text" class="form-control" placeholder="Search...">
+                <i class="input-group-text bg-ocolor text-light">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <a href="#" class="btn bg-ocolor">
+                Cart <i class="fa-solid fa-cart-arrow-down"></i>
+                <b class="badge bg-dark">
+                    {}
+                </b>
+            </a>
+            {% if request.session.userid %}
+            <b>{{ requset.session.userid }}</b>
+            {% else%}
+            <b>Guest</b>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row menu bg-bcolor" style="min-height:45px">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <!-- start menu -->
+             <nav class="navbar navbar-expand-lg" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active  me-3" aria-current="page" href="/user/home/"><i class="fa-solid fa-house"></i>  Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ms-3" href="/user/about/"><i class="fa-solid fa-info"></i></i>  About Us</a>
+        </li>
+        <li class="nav-item dropdown  ms-3">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+          </a>
+          <ul class="dropdown-menu bg-dark">
+            <li><a class="dropdown-item bg-dark" href="/user/Novel/"> Novel </a></li>
+            <li><a class="dropdown-item bg-dark" href="/user/Fictional/">  Fictional</a></li>
+            <li><a class="dropdown-item bg-dark" href="/user/Academic/">  Academic</a></li>
+           <!--<li><a class="dropdown-item bg-dark" href="/user/kids/">  Biography</a></li>
+
+            <li><a class="dropdown-item bg-dark" href="/user/kids/">  Engineering</a></li>
+            <li><a class="dropdown-item bg-dark" href="/user/kids/">  Neet</a></li>-->
+          </ul>
+        </li>
+        <li class="nav-item  ms-3">
+          <a class="nav-link" href="/user/order/">  My Orders</a>
+        </li>
+          <li class="nav-item  ms-3">
+          <a class="nav-link" href="/user/enquiry/">  Enquiry</a>
+        </li>
+          <li class="nav-item  ms-3">
+          <a class="nav-link" href="/user/signup/"><i class="fa-solid fa-user-plus"></i>  Sign Up</a>
+        </li>
+          <li class="nav-item  ms-3">
+          <a class="nav-link" href="/user/profile/"><i class="fa-solid fa-user"></i>  My Profile</a>
+        </li>
+          {% if request.session.userid %}
+          <li class="nav-item  ms-3">
+          <a class="nav-link" href="/user/signout/"><i class="fa-solid fa-arrow-right-to-bracket"></i>  Sign out</a>
+        </li>
+          {% else %}
+          <li class="nav-item  ms-3">
+          <a class="nav-link" href="/user/signin/"><i class="fa-solid fa-arrow-right-to-bracket"></i>  Sign In</a>
+        </li>
+          {% endif%}
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+            <!-- end menu -->
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+
+    <div class="row product">
+        <div class="col-sm-12 py-3">
+    {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row bigsale"></div>
+    <div class="row message"></div>
+    <div class="row ufooter bg-bcolor border border-1">
+    <div class="col-sm-4">
+        <h4 class="text-white pt-2 text-center ">Contact <b class="text-ocolor">Address</b></h4>
+        <h5 class="text-center text-white ps-5 pe-5 mt-4"><i class="fa-solid fa-house"></i>    Near Lal kothi Lakhpeabagh Barabanki uttar pradesh</h5>
+        <h5 class="text-white ps-4 pe-5 pt-3 ms-3">
+        <i class="fa-solid fa-phone text-white ps-3 pe-3 "></i>+91 8601909664 | 9696969696
+    </h5>
+    <h5 class="text-white ps-5 ms-2 pe-3 pt-3"><i class="fa-solid fa-envelope pe-4"></i>Ns967079@gmail.com</h5>
+        <h5 class="text-white ps-5 ms-3 pt-3 size">
+        <i class="fa-brands fa-facebook pe-5"></i>
+         <i class="fa-brands fa-youtube pe-5">  </i>
+         <i class="fa-brands fa-twitter pe-5">  </i>
+         <i class="fa-brands fa-instagram">  </i>
+        </h5>
+
+
+    </div>
+    <div class="col-sm-4">
+        <img src="{% static 'images/gem.png'%}" class="pt-2 ps-4"/>
+        <img src="{% static 'images/start.png'%}" class="pt-2 ps-4"/>
+    </div>
+    <div class="col-sm-4 fs-2 text-center text-white pt-3 ">
+         <b>BOOK <b class="text-ocolor"> वाला</b>
+        </b><br>
+        <h5 class="fs-5 text-center mt-3 ps-3 pe-3">
+        FavCart india is a place where you can find cloths for your loved one's.
+            </h5>
+        <h5 class="fs-3  pt-3">About <b class="text-ocolor">Us</b> </h5>
+        <h5 class="fs-3  pt-3">Help </h5>
+    </div>
+</div>
+    <div class="row bfooter bg-bcolor">
+        <div class="col-sm-6">
+            Developed By : <a href="#" class="text-ocolor">Nikhil Singh</a>
+        </div>
+        <div class="col-sm-6">
+            &copy; Copyright to : <a href="https://www.techpile.in" target="_blank" class="text-ocolor">
+            Ns Pvt. Ltd.</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

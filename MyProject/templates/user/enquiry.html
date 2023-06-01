@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .msg{
+    min-height:500px;
+    padding:50px 20px;
+    box-sizing:border-box;
+    //background:#FF8800;
+    }
+    .about{
+    min-height:400px;
+    padding:50px 20px;
+    box-sizing:border-box;
+    background:#FF8800;
+    }
+    .pd{
+    background:#f2f2f2;
+    }
+    #ho:hover{
+    transform:scale(1);
+    transition:all ease .5s;
+    color:red;
+    }
+
+</style>
+<div class="fs-2 my-3 text-center"><b>Contact </b><b class="text-ocolor">With Us</b>
+<i class="fa-solid-fa-location-dot"></i>
+    </div>
+<div class="row">
+    <div class="col-sm-4">
+
+
+    </div>
+</div>
+<div class="row mx-5 mb-5 rounded pd px-5 py-5">
+
+    <div class="col-sm-6 msg p-2">
+        <!-- start form -->
+        {% if m %}
+        <div class="alert alert-success">YOUR MESSAGE SENT SUCCESSFULLY</div>
+        {% endif %}
+            <form method="post" class="row px-3 fs-4 g-3">
+                {% csrf_token %}
+                    <div class="col-12 pt-0">
+        Send Your Message
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Your Name</label>
+    <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Enter Your Name " required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Your Contact</label>
+    <input type="tel" class="form-control" name="mob" placeholder="Enter Your Contact Number*" id="inputPassword4" required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Your Email</label>
+    <input type="text" class="form-control" name="email" id="inputAddress" placeholder="Enter Your Email*" required>
+  </div>
+   <div class="col-12">
+       <label for="abc" class="form-label">Your Message</label>
+       <textarea class="form-control" name="msg" id="abc" placeholder="Type Your Message Here..." rows="4" cols="52" style></textarea>
+  </div>
+
+    <!--  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div> -->
+  <div class="col-12 px-2">
+    <button type="submit" class="btn btn-outline-warning">SEND MESSAGE</button>
+  </div>
+</form>
+        <!-- end form -->
+    </div>
+    <div class="col-sm-6 ">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.2849180246853!2d81.24152537531823!3d26.926180576639148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399961958bd1ae9d%3A0x7b9720a96a1f2f5f!2sSagar%20Institute%20Of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1685371663888!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           </div>
+</div>
+
+{% endblock%}

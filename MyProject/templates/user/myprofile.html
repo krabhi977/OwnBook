@@ -1,0 +1,107 @@
+{% extends 'base.html'%}
+{% block content%}
+{% load static %}
+<script src="{% static 'js/jquery-3.6.1.min.js'%}"></script>
+<script>
+    $(document).ready(function(){
+    $("#btne").click(function(){
+    $(".uform").slideToggle("4000")
+    })
+    })
+</script>
+
+{% if not request.session.userid %}
+
+<script>
+    alert('You have login first..')
+    location.href="/user/signin/"
+
+</script>
+{% endif %}
+<div class="text-center"><h2 style="margin:30px;">My<b class="text-ocolor"> Profile</b></h2></div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+<!--            start card-->
+            {% for x in mdata %}
+            <div class="card mb-3 w-100">
+  <div class="row g-0">
+    <div class="col-md-4 p-4">
+      <img src="/{{x.ppic}}"style="min-height:200px;" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{x.name}}</h5>
+        <p class="card-text">
+            <b>Mobile-</b>{{x.mobile}}<br>
+            <b>Email-</b>{{x.email}}<br>
+            <b>Password-</b>{{x.passwd}}<br>
+            <b>Address-</b>{{x.address}}</br>
+            <a href="#" id="btne" class="btn bg-color float">
+                  Edit profile</a>
+        </p>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+<!--            end card-->
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<!--form-->
+<style>
+     .txt
+    {
+    height:50px;
+    margin-bottom:15px;
+    }
+    .txti
+    {
+    height:50px;
+    width:50px;
+    }
+    .txta
+    {
+    height:80px;
+    margin-bottom:15px;
+    }
+    .txtb
+    {
+    width:50px;
+    height:100px;
+    }
+    .uform
+    {
+    display:none;
+    }
+</style>
+
+<div class="row">
+
+    <div class="col-sm-8 mx-auto uform">
+        <div class="row">
+            <div class="col-sm-7">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" class=" form-control txt" name="name" required placeholder="Enter your name">
+
+                    <input type="password" class="form-control txt" name="passwd" required placeholder="Enter password..">
+                    <input type="number" class="form-control txt" name="mobile" required placeholder="Enter Mobile">
+                    <input type="file" class=" form-control txt" name="pic" required >
+                    <textarea class="form-control txta" name="address" required placeholder="Address"></textarea>
+                    <input type="submit" value="Register Now" class="btn bg-bcolor txt text-white">
+                </form>
+            </div>
+            <div class=" col-sm-5"></div>
+        </div>
+    </div>
+
+
+</div>
+<!--end form-->
+{% endblock %}

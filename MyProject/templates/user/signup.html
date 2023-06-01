@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    .signup
+    {
+    min-height:500px;
+    font-size:14px;
+    }
+    .form-control
+    {
+    margin-bottom:8px;
+    font-size:14px;
+    }
+    .txta
+    {
+    min-height:90px;
+    }
+
+
+
+</style>
+<div class="row py-4">
+    <div class="h2 text-center"><b>SIGN <span class="text-ocolor">UP <i class="fa fa-user-plus"></i></span></b></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 signup bg-light p-3 border">
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    Name*<input type="text" name="name" required class="form-control txt " placeholder="Enter Your Name"/>
+                   <!-- Date Of Birth*<input type="date" name="dob" required class="form-control" placeholder="DD/MM/YYYY"/>
+                    <!-Gender* &nbsp<input type="radio" name="gender" value="male"/> Male
+                            <input type="radio" name="gender" value="female"> Female<br/>-->
+                    Mobile No.*<input type="number" name="mob" required class="form-control txt"
+                                      placeholder="Enter Mobile No."/>
+                    Email*<input type="email" name="email" required class="form-control txt"
+                                 placeholder="Enter Your Email"/>
+                    Password*<input type="password" name="passwd" required class="form-control txt"
+                                    placeholder="Create Possword"/>
+                    Upload Photo*<br/><input type="file" id="pic" name="pic" class="form-control txt">
+                    Address*<textarea class="form-control txta" name="address" style="resize:none" required
+                                      placeholder="Enter your Address..."></textarea>
+
+                    <input type="submit" value="Register Now" class="btn btn-warning form-control"/>
+                        </form>
+                </div>
+            </div>
+
+        <div class="text-center fs-6">existing costumar <a href="/user/signin"><b>Sign In</b></a></div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}`
